@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Textos principales -->
+    <string name="app_name">Reserva Hotel</string>
+    <string name="titulo_reserva">Reserva tu habitación</string>
+
+    <!-- Campos del formulario -->
+    <string name="hint_nombre">Nombre completo</string>
+    <string name="hint_correo">Correo electrónico</string>
+    <string name="hint_ciudad">Ciudad de destino</string>
+
+    <!-- Tipo de habitación -->
+    <string name="tipo_habitacion">Tipo de habitación</string>
+    <string name="individual">Individual</string>
+    <string name="doble">Doble</string>
+    <string name="suite">Suite</string>
+
+    <!-- Servicios -->
+    <string name="servicios_adicionales">Servicios adicionales</string>
+    <string name="desayuno">Desayuno incluido</string>
+    <string name="spa">Spa y gimnasio</string>
+    <string name="transporte">Transporte al aeropuerto</string>
+
+    <!-- Preferencias -->
+    <string name="preferencias_usuario">Preferencias del usuario</string>
+    <string name="notificaciones">Recibir notificaciones por correo</string>
+    <string name="pago_anticipado">Pago anticipado</string>
+    <string name="pago_al_llegar">Pago al llegar</string>
+
+    <!-- Botón -->
+    <string name="confirmar_reserva">Confirmar reserva</string>
+
+    <!-- Array de ciudades -->
+    <string-array name="ciudades">
+        <item>Madrid</item>
+        <item>Barcelona</item>
+        <item>Valencia</item>
+        <item>Sevilla</item>
+        <item>Bilbao</item>
+        <item>Granada</item>
+        <item>Salamanca</item>
+    </string-array>
+</resources>
