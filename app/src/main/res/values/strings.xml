@@ -29,6 +29,7 @@
 
     <!-- Botón -->
     <string name="confirmar_reserva">Confirmar reserva</string>
+    <string name="Vivagym">Vivagym</string>
 
     <!-- Array de ciudades -->
     <string-array name="ciudades">

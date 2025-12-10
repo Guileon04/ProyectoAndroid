@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="#1C1B1F"> <!-- Fondo oscuro principal -->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:padding="24dp"
+        tools:ignore="ExtraText">
 
-        <!-- Imagen decorativa -->
+        <!-- Imagen decorativa (Logo) -->
         <ImageView
             android:id="@+id/logoHotel"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/hoteel"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:background="@drawable/circle_orange"
             android:contentDescription="Logo del hotel"
+            android:padding="20dp"
+            android:src="@drawable/viva"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -29,177 +34,55 @@
             android:text="Reserva tu habitación"
             android:textSize="22sp"
             android:textStyle="bold"
-            android:layout_marginTop="12dp"
-            app:layout_constraintTop_toBottomOf="@id/logoHotel"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            android:textColor="#FFFFFF"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/logoHotel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
         <!-- Nombre -->
-        <TextView
-            android:id="@+id/textNombre"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nombre completo"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@id/titulo"
-            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/editNombre"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
+            android:background="@drawable/rounded_edittext"
             android:hint="Escribe tu nombre"
-            app:layout_constraintTop_toBottomOf="@id/textNombre"
+            android:inputType="textPersonName"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#9E9E9E"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            tools:layout_editor_absoluteY="235dp" />
 
         <!-- Correo -->
-        <TextView
-            android:id="@+id/textCorreo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Correo electrónico"
-            android:layout_marginTop="12dp"
-            app:layout_constraintTop_toBottomOf="@id/editNombre"
-            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/editCorreo"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
+            android:background="@drawable/rounded_edittext"
             android:hint="Escribe tu correo"
             android:inputType="textEmailAddress"
-            app:layout_constraintTop_toBottomOf="@id/textCorreo"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#9E9E9E"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            tools:layout_editor_absoluteY="346dp" />
 
         <!-- Ciudad -->
-        <TextView
-            android:id="@+id/textCiudad"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ciudad de destino"
-            android:layout_marginTop="12dp"
-            app:layout_constraintTop_toBottomOf="@id/editCorreo"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <AutoCompleteTextView
-            android:id="@+id/autoCiudad"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="Selecciona ciudad"
-            app:layout_constraintTop_toBottomOf="@id/textCiudad"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
 
         <!-- Tipo de habitación -->
-        <TextView
-            android:id="@+id/textTipoHabitacion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tipo de habitación"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@id/autoCiudad"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <RadioGroup
-            android:id="@+id/groupTipoHabitacion"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@id/textTipoHabitacion"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-
-            <RadioButton
-                android:id="@+id/radioIndividual"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Individual" />
-
-            <RadioButton
-                android:id="@+id/radioDoble"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Doble"
-                android:layout_marginStart="16dp" />
-
-            <RadioButton
-                android:id="@+id/radioSuite"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Suite"
-                android:layout_marginStart="16dp" />
-        </RadioGroup>
 
         <!-- Servicios -->
-        <TextView
-            android:id="@+id/textServicios"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Servicios adicionales"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@id/groupTipoHabitacion"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <LinearLayout
-            android:id="@+id/layoutServicios"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@id/textServicios"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-
-            <CheckBox
-                android:id="@+id/checkDesayuno"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Desayuno incluido" />
-
-            <CheckBox
-                android:id="@+id/checkSpa"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Spa y gimnasio" />
-
-            <CheckBox
-                android:id="@+id/checkTransporte"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Transporte al aeropuerto" />
-        </LinearLayout>
 
         <!-- Pago -->
-        <ToggleButton
-            android:id="@+id/togglePago"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textOn="Pago anticipado"
-            android:textOff="Pago al llegar"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@id/layoutServicios"
-            app:layout_constraintStart_toStartOf="parent" />
 
         <!-- Botón -->
-        <Button
-            android:id="@+id/btnConfirmar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Confirmar reserva"
-            android:layout_marginTop="24dp"
-            android:padding="12dp"
-            android:background="#4CAF50"
-            android:textColor="#FFFFFF"
-            app:layout_constraintTop_toBottomOf="@id/togglePago"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
-
