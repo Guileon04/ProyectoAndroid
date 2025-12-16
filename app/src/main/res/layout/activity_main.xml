@@ -4,85 +4,170 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1C1B1F"> <!-- Fondo oscuro principal -->
+    android:background="#121212"
+    android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="24dp"
-        tools:ignore="ExtraText">
+        tools:context=".MainActivity">
 
-        <!-- Imagen decorativa (Logo) -->
+        <!-- Logo y Saludo de Bienvenida -->
         <ImageView
-            android:id="@+id/logoHotel"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
+            android:id="@+id/logoViva"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:background="@drawable/circle_orange"
-            android:contentDescription="Logo del hotel"
-            android:padding="20dp"
+            android:contentDescription="Logo de Vivagym"
+            android:padding="16dp"
             android:src="@drawable/viva"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Título -->
         <TextView
-            android:id="@+id/titulo"
+            android:id="@+id/txtSaludo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="¡Hola, Usuario!"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/logoViva"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/logoViva"
+            app:layout_constraintTop_toTopOf="@+id/logoViva" />
+
+        <!-- Tarjeta de Acceso Rápido con QR -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardAccesoQR"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            app:cardBackgroundColor="#2C2C2C"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logoViva">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/txtTituloQR"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Acceso al Gimnasio"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txtSubtituloQR"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Muestra este QR en el torno"
+                    android:textColor="#B0B0B0"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtTituloQR" />
+
+                <ImageView
+                    android:id="@+id/imgQR"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@android:color/white"
+                    android:contentDescription="Código QR de acceso"
+                    android:padding="4dp"
+                    android:src="@android:drawable/ic_menu_camera"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/orange" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Título de la sección de menú -->
+        <TextView
+            android:id="@+id/txtTituloMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Reserva tu habitación"
-            android:textSize="22sp"
+            android:layout_marginTop="32dp"
+            android:text="¿Qué quieres hacer hoy?"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="#FFFFFF"
-        android:layout_marginTop="24dp"
-        app:layout_constraintTop_toBottomOf="@id/logoHotel"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-        <!-- Nombre -->
-
-        <EditText
-            android:id="@+id/editNombre"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:background="@drawable/rounded_edittext"
-            android:hint="Escribe tu nombre"
-            android:inputType="textPersonName"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#9E9E9E"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="235dp" />
+            app:layout_constraintTop_toBottomOf="@+id/cardAccesoQR" />
 
-        <!-- Correo -->
-
-        <EditText
-            android:id="@+id/editCorreo"
+        <!-- Botones de Acción -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnReservarClase"
             android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:background="@drawable/rounded_edittext"
-            android:hint="Escribe tu correo"
-            android:inputType="textEmailAddress"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#9E9E9E"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="120dp"
+            android:layout_marginTop="16dp"
+            android:text="Reservar Clase"
+            android:textSize="18sp"
+            android:backgroundTint="@color/orange"
+            app:icon="@android:drawable/ic_menu_my_calendar"
+            app:iconGravity="textTop"
+            app:iconPadding="8dp"
+            app:iconSize="48dp"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="346dp" />
+            app:layout_constraintTop_toBottomOf="@+id/txtTituloMenu"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            android:layout_marginEnd="8dp"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.App.Button.Rounded"/>
 
-        <!-- Ciudad -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMisRutinas"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="16dp"
+            android:text="Mis Rutinas"
+            android:textSize="18sp"
+            android:backgroundTint="#3A3A3A"
+            app:icon="@android:drawable/ic_menu_sort_by_size"
+            app:iconGravity="textTop"
+            app:iconPadding="8dp"
+            app:iconSize="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTituloMenu"
+            app:layout_constraintStart_toEndOf="@id/guideline"
+            android:layout_marginStart="8dp"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.App.Button.Rounded"/>
 
-        <!-- Tipo de habitación -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMiPerfil"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="16dp"
+            android:text="Mi Perfil"
+            android:textSize="18sp"
+            android:backgroundTint="#3A3A3A"
+            app:icon="@android:drawable/ic_menu_manage"
+            app:iconGravity="textTop"
+            app:iconPadding="8dp"
+            app:iconSize="48dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnReservarClase"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            android:layout_marginEnd="8dp"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.App.Button.Rounded"/>
 
-        <!-- Servicios -->
-
-        <!-- Pago -->
-
-        <!-- Botón -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
+

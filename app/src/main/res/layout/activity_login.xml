@@ -6,8 +6,9 @@
     android:layout_height="match_parent"
     android:background="#000000"
     android:paddingHorizontal="24dp"
-    android:padding="49dp">
-    
+    tools:context=".LoginActivity">
+
+    <!-- Logo -->
     <ImageView
         android:id="@+id/logoViva"
         android:layout_width="100dp"
@@ -21,7 +22,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
+    <!-- Texto de introducción -->
     <TextView
         android:id="@+id/intro_text"
         android:layout_width="0dp"
@@ -35,7 +36,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logoViva" />
 
-
+    <!-- Campo de Correo electrónico -->
     <EditText
         android:id="@+id/edtEmailLogin"
         android:layout_width="0dp"
@@ -51,13 +52,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/intro_text" />
 
-
+    <!-- Campo de Contraseña con icono -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/password_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:textColorHint="#CCCCCC"
         app:boxStrokeWidth="0dp"
         app:boxStrokeWidthFocused="0dp"
         app:hintEnabled="false"
@@ -75,11 +75,11 @@
             android:hint="Contraseña"
             android:inputType="textPassword"
             android:paddingHorizontal="20dp"
-            android:textColor="@android:color/white" />
-
+            android:textColor="@android:color/white"
+            android:textColorHint="#CCCCCC" />
     </com.google.android.material.textfield.TextInputLayout>
 
-
+    <!-- Botón de Iniciar Sesión (SIN backgroundTint) -->
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="0dp"
@@ -90,12 +90,11 @@
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="16sp"
-        app:backgroundTint="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password_layout" />
 
-
+    <!-- Texto ¿Has olvidado tu contraseña? -->
     <TextView
         android:id="@+id/txtOlvidada"
         android:layout_width="wrap_content"
@@ -108,14 +107,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 
-
+    <!-- Ir a Registro -->
     <TextView
-        android:id="@+id/contact_text"
+        android:id="@+id/txtIrARegistro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:gravity="center"
-        android:text="¿No tienes cuenta? Contáctanos y te damos de alta"
+        android:text="¿No tienes cuenta? Regístrate"
         android:textColor="#A0A0A0"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -9,30 +9,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="55dp">
+        android:padding="32dp">
 
-        <!-- Logo circular -->
-
-        <!-- Título -->
-        <LinearLayout
+        <!-- Logo con ImageView (CORREGIDO) -->
+        <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="24dp"
             android:background="@drawable/circle_orange"
-            android:gravity="center">
+            android:src="@drawable/viva"
+            android:padding="18dp"
+            android:contentDescription="Logo de la app" />
 
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/viva"
-                android:text=""
-                android:textColor="#FFFFFF"
-                android:textSize="40sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
+        <!-- Título -->
         <TextView
             android:id="@+id/txtTitle"
             android:text="Crear cuenta"
@@ -44,15 +34,13 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp" />
 
-        <!-- Nombre -->
+        <!-- Campos de texto (sin cambios, ya estaban bien) -->
         <TextView
             android:text="Nombre completo"
             android:textColor="#FFFFFF"
-            android:textSize="14sp"
-            android:layout_marginBottom="4dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"/>
         <EditText
             android:id="@+id/edtNombre"
             android:layout_width="match_parent"
@@ -63,16 +51,13 @@
             android:textColor="#FFFFFF"
             android:textColorHint="#777777" />
 
-        <!-- Email -->
         <TextView
             android:text="Correo electrónico"
             android:textColor="#FFFFFF"
-            android:textSize="14sp"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="4dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"/>
         <EditText
             android:id="@+id/edtEmail"
             android:layout_width="match_parent"
@@ -84,16 +69,13 @@
             android:textColorHint="#777777"
             android:inputType="textEmailAddress" />
 
-        <!-- Contraseña -->
         <TextView
             android:text="Contraseña"
             android:textColor="#FFFFFF"
-            android:textSize="14sp"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="4dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"/>
         <EditText
             android:id="@+id/edtPass"
             android:layout_width="match_parent"
@@ -105,16 +87,13 @@
             android:textColorHint="#777777"
             android:inputType="textPassword" />
 
-        <!-- Confirmar contraseña -->
         <TextView
             android:text="Confirmar contraseña"
             android:textColor="#FFFFFF"
-            android:textSize="14sp"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="4dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"/>
         <EditText
             android:id="@+id/edtPass2"
             android:layout_width="match_parent"
@@ -148,7 +127,5 @@
             android:text="¿Ya tienes cuenta? Iniciar sesión"
             android:textColor="#FF8C42"
             android:textSize="14sp" />
-
     </LinearLayout>
-
 </ScrollView>

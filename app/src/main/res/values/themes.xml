@@ -1,5 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Tarea1GLM" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+    <!-- Estilo para los botones con esquinas redondeadas -->
+    <style name="ShapeAppearance.App.Button.Rounded" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
 
-    <style name="Theme.Tarea1GLM" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.Tarea1GLM" parent="Base.Theme.Tarea1GLM" />
 </resources>

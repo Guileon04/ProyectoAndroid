@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "693007129078",
+    "project_id": "vivagym-2155c",
+    "storage_bucket": "vivagym-2155c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:693007129078:android:737e8dd1d313fb7d760fd7",
+        "android_client_info": {
+          "package_name": "com.example.tarea1glm"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkcWWVY2bWIOB7OKmVGkr5v9_3Tpf7T8Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
