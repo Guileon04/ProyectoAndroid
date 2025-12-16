@@ -1,9 +1,9 @@
+// COPIA Y PEGA ESTE CONTENIDO COMPLETO
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
-    id("com.google.gms.google-services")
-
+    alias(libs.plugins.google.services) // <-- AÑADIDO: Aplica el plugin de Google Services
 }
 
 android {
@@ -16,7 +16,6 @@ android {
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -36,32 +35,30 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    // Habilitamos ViewBinding, que es la forma moderna de usar XML sin findViewById
     buildFeatures {
-        compose = true
+        viewBinding = true
     }
 }
 
 dependencies {
-
+    // Dependencias básicas para un proyecto con XML Views
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
-    implementation(libs.androidx.constraintlayout)
-    implementation(libs.material)
     implementation(libs.androidx.appcompat)
-    implementation(libs.androidx.activity)
+    implementation(libs.material)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.activity.ktx) // Se usa .activity.ktx en lugar de .activity
+
+    // 1. Se importa el Firebase BOM (Bill of Materials)
+    // Él gestionará las versiones de todas las demás librerías de Firebase.
+    implementation(platform(libs.firebase.bom))
+
+    // 2. Se añaden las dependencias de Firebase SIN especificar la versión.
+    implementation("com.google.firebase:firebase-analytics")
+    implementation(libs.firebase.auth.ktx) // La librería que te daba error, ahora sin versión explícita
+
+    // Dependencias de testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
-    implementation(platform("com.google.firebase:firebase-bom:34.7.0"))
-    implementation("com.google.firebase:firebase-analytics")
 }

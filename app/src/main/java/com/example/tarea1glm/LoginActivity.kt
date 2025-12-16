@@ -6,11 +6,14 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
+
+
 // Definición correcta y única de la clase
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
 
         // 1. Referencias a las vistas
         val btnLogin = findViewById<Button>(R.id.btnLogin)

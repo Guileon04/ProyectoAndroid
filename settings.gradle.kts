@@ -1,13 +1,8 @@
+// COPIA Y PEGA ESTE CONTENIDO COMPLETO
+
 pluginManagement {
-    repositories {
-        google {
-            content {
-                includeGroupByRegex("com\\.android.*")
-                includeGroupByRegex("com\\.google.*")
-                includeGroupByRegex("androidx.*")
-            }
-        }
-        mavenCentral()
+    repositories {google()
+        mavenCentral() // Necesario para encontrar los plugins de Google y otros
         gradlePluginPortal()
     }
 }
@@ -15,10 +10,9 @@ dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
-        mavenCentral()
+        mavenCentral() // El más importante, para encontrar las librerías de Firebase
     }
 }
 
-rootProject.name = "Tarea1GLM"
+rootProject.name = "ProyectoAndroid" // Asegúrate de que el nombre sea el de tu proyecto
 include(":app")
- 
