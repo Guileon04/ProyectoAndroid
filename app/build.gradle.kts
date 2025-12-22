@@ -1,5 +1,3 @@
-// COPIA Y PEGA ESTE CONTENIDO COMPLETO
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -55,6 +53,7 @@ dependencies {
 
     // 2. Se añaden las dependencias de Firebase SIN especificar la versión.
     implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-auth:19.1.0")
     implementation(libs.firebase.auth.ktx) // La librería que te daba error, ahora sin versión explícita
 
     // Dependencias de testing
