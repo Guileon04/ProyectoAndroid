@@ -5,4 +5,6 @@
     <color name="texto_secundario">#666666</color>
     <color name="blanco">#FFFFFF</color>
     <color name="orange">#FF6F00</color>
+    <color name="amarillo">#FFEB3B</color>
+    <color name="gris">#ADADA7</color>
 </resources>

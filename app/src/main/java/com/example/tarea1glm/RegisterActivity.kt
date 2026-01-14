@@ -1,38 +1,68 @@
-package com.example.tarea1glm // Reemplaza con tu paquete
+package com.example.tarea1glm
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 
-// Definición de la clase, una sola vez y de forma correcta
 class RegisterActivity : AppCompatActivity() {
+
+    private lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        // 1. Referencias a las vistas
+        auth = FirebaseAuth.getInstance()
+
+        val etEmail = findViewById<EditText>(R.id.edtEmail)
+        val etPassword = findViewById<EditText>(R.id.edtPass)
+        val etConfirmPassword = findViewById<EditText>(R.id.edtPass2)
         val btnCrearCuenta = findViewById<Button>(R.id.btnCrearCuenta)
         val txtLogin = findViewById<TextView>(R.id.txtLogin)
 
-        // 2. Listener para el botón "Crear Cuenta"
         btnCrearCuenta.setOnClickListener {
-            // Simulamos un registro exitoso y navegamos a la pantalla principal
-            val intent = Intent(this, MainActivity::class.java)
+            val email = etEmail.text.toString().trim()
+            val password = etPassword.text.toString().trim()
+            val confirmPassword = etConfirmPassword.text.toString().trim()
 
-            // Limpiamos la pila de actividades para que el usuario no pueda volver atrás
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            when {
+                email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() ->
+                    toast("Completa todos los campos")
 
-            startActivity(intent)
+                password.length < 6 ->
+                    toast("La contraseña debe tener al menos 6 caracteres")
+
+                password != confirmPassword ->
+                    toast("Las contraseñas no coinciden")
+
+                else -> {
+                    auth.createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener { task ->
+                            if (task.isSuccessful) {
+                                auth.signOut()
+                                irALogin()
+                            } else {
+                                toast(task.exception?.message ?: "Error al registrar")
+                            }
+                        }
+                }
+            }
         }
 
-        // 3. Listener para el texto "Iniciar sesión"
         txtLogin.setOnClickListener {
-            // Simplemente vuelve a la pantalla de login
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+            irALogin()
         }
     }
-}
 
+    private fun irALogin() {
+        val intent = Intent(this, LoginActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+    }
+
+    private fun toast(msg: String) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+    }
+}

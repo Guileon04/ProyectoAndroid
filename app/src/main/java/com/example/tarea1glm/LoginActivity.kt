@@ -1,40 +1,78 @@
-package com.example.tarea1glm // Reemplaza con tu paquete
+package com.example.tarea1glm
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 
-
-
-// Definición correcta y única de la clase
 class LoginActivity : AppCompatActivity() {
+
+    private lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
+
+        if (sesionIniciada()) {
+            irAMain()
+            return
+        }
+
         setContentView(R.layout.activity_login)
 
+        auth = FirebaseAuth.getInstance()
 
-        // 1. Referencias a las vistas
+        val etEmail = findViewById<EditText>(R.id.edtEmailLogin)
+        val etPassword = findViewById<EditText>(R.id.edtPassLogin)
         val btnLogin = findViewById<Button>(R.id.btnLogin)
         val txtIrARegistro = findViewById<TextView>(R.id.txtIrARegistro)
 
-        // 2. Listener para el botón "Iniciar Sesión"
         btnLogin.setOnClickListener {
-            // Simulamos un login exitoso y navegamos a la pantalla principal
-            val intent = Intent(this, MainActivity::class.java)
+            val email = etEmail.text.toString().trim()
+            val password = etPassword.text.toString().trim()
 
-            // Limpiamos la pila de actividades para que el usuario no pueda volver atrás con el botón "atrás"
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            if (email.isEmpty() || password.isEmpty()) {
+                toast("Completa todos los campos")
+                return@setOnClickListener
+            }
 
-            startActivity(intent)
+            auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        guardarSesion(email)
+                        irAMain()
+                    } else {
+                        toast(task.exception?.message ?: "Error al iniciar sesión")
+                    }
+                }
         }
 
-        // 3. Listener para el texto "Regístrate"
         txtIrARegistro.setOnClickListener {
-            // Navega a la pantalla de registro
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, RegisterActivity::class.java))
         }
+    }
+
+    private fun guardarSesion(email: String) {
+        val prefs = getSharedPreferences("sesion", MODE_PRIVATE)
+        prefs.edit()
+            .putBoolean("logueado", true)
+            .putString("email", email)
+            .apply()
+    }
+
+    private fun sesionIniciada(): Boolean {
+        val prefs = getSharedPreferences("sesion", MODE_PRIVATE)
+        return prefs.getBoolean("logueado", false)
+    }
+
+    private fun irAMain() {
+        startActivity(Intent(this, MainActivity::class.java))
+        finish()
+    }
+
+    private fun toast(msg: String) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }
 }

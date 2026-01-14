@@ -13,17 +13,18 @@
         android:padding="24dp"
         tools:context=".MainActivity">
 
-        <!-- Logo y Saludo de Bienvenida -->
+
         <ImageView
             android:id="@+id/logoViva"
             android:layout_width="80dp"
             android:layout_height="80dp"
+            android:layout_marginTop="20sp"
             android:background="@drawable/circle_orange"
-            android:contentDescription="Logo de Vivagym"
             android:padding="16dp"
             android:src="@drawable/viva"
+            android:contentDescription="Logo"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
             android:id="@+id/txtSaludo"
@@ -32,68 +33,74 @@
             android:layout_marginStart="16dp"
             android:text="¡Hola, Usuario!"
             android:textColor="@android:color/white"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/logoViva"
+            app:layout_constraintStart_toEndOf="@id/logoViva"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/logoViva"
-            app:layout_constraintTop_toTopOf="@+id/logoViva" />
+            app:layout_constraintTop_toTopOf="@id/logoViva"
+            app:layout_constraintBottom_toBottomOf="@id/logoViva"/>
 
-        <!-- Tarjeta de Acceso Rápido con QR -->
+
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardAccesoQR"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            app:cardBackgroundColor="#2C2C2C"
             app:cardCornerRadius="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:cardBackgroundColor="#2C2C2C"
+            app:layout_constraintTop_toBottomOf="@id/logoViva"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/logoViva">
+            app:layout_constraintEnd_toEndOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="20dp">
 
+
+                <ImageView
+                    android:id="@+id/imgQR"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@android:color/white"
+                    android:padding="6dp"
+                    android:src="@drawable/qr2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+
                 <TextView
                     android:id="@+id/txtTituloQR"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
                     android:text="Acceso al Gimnasio"
                     android:textColor="@android:color/white"
-                    android:textSize="18sp"
                     android:textStyle="bold"
+                    android:textSize="18sp"
+                    app:layout_constraintTop_toBottomOf="@id/imgQR"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
 
                 <TextView
                     android:id="@+id/txtSubtituloQR"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
                     android:text="Muestra este QR en el torno"
                     android:textColor="#B0B0B0"
                     android:textSize="14sp"
+                    app:layout_constraintTop_toBottomOf="@id/txtTituloQR"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtTituloQR" />
-
-                <ImageView
-                    android:id="@+id/imgQR"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:background="@android:color/white"
-                    android:contentDescription="Código QR de acceso"
-                    android:padding="4dp"
-                    android:src="@android:drawable/ic_menu_camera"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:tint="@color/orange" />
+                    app:layout_constraintEnd_toEndOf="parent"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Título de la sección de menú -->
+
         <TextView
             android:id="@+id/txtTituloMenu"
             android:layout_width="wrap_content"
@@ -103,71 +110,130 @@
             android:textColor="@android:color/white"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardAccesoQR" />
+            app:layout_constraintTop_toBottomOf="@id/cardAccesoQR"
+            app:layout_constraintStart_toStartOf="parent"/>
 
-        <!-- Botones de Acción -->
+
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnReservarClase"
             android:layout_width="0dp"
             android:layout_height="120dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
             android:text="Reservar Clase"
+            android:textColor="@color/blanco"
+            app:iconTint="@color/blanco"
             android:textSize="18sp"
             android:backgroundTint="@color/orange"
             app:icon="@android:drawable/ic_menu_my_calendar"
             app:iconGravity="textTop"
-            app:iconPadding="8dp"
             app:iconSize="48dp"
+            app:iconPadding="8dp"
+            app:layout_constraintTop_toBottomOf="@id/txtTituloMenu"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtTituloMenu"
-            app:layout_constraintEnd_toStartOf="@+id/guideline"
-            android:layout_marginEnd="8dp"
-            app:shapeAppearanceOverlay="@style/ShapeAppearance.App.Button.Rounded"/>
+            app:layout_constraintEnd_toStartOf="@id/guideline"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnMisRutinas"
             android:layout_width="0dp"
             android:layout_height="120dp"
             android:layout_marginTop="16dp"
+            android:layout_marginStart="8dp"
             android:text="Mis Rutinas"
+            android:textColor="@color/blanco"
+            app:iconTint="@color/blanco"
             android:textSize="18sp"
-            android:backgroundTint="#3A3A3A"
+            android:backgroundTint="@color/orange"
             app:icon="@android:drawable/ic_menu_sort_by_size"
             app:iconGravity="textTop"
-            app:iconPadding="8dp"
             app:iconSize="48dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtTituloMenu"
+            app:iconPadding="8dp"
+            app:layout_constraintTop_toBottomOf="@id/txtTituloMenu"
             app:layout_constraintStart_toEndOf="@id/guideline"
-            android:layout_marginStart="8dp"
-            app:shapeAppearanceOverlay="@style/ShapeAppearance.App.Button.Rounded"/>
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnMiPerfil"
             android:layout_width="0dp"
             android:layout_height="120dp"
             android:layout_marginTop="16dp"
-            android:text="Mi Perfil"
+            android:layout_marginEnd="8dp"
+            android:text="Personal"
+            android:textColor="@color/blanco"
+            app:iconTint="@color/blanco"
             android:textSize="18sp"
-            android:backgroundTint="#3A3A3A"
+            android:backgroundTint="@color/orange"
+            app:icon="@android:drawable/ic_menu_myplaces"
+            app:iconGravity="textTop"
+            app:iconSize="48dp"
+            app:iconPadding="8dp"
+            app:layout_constraintTop_toBottomOf="@id/btnReservarClase"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/guideline"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMisReservas"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="8dp"
+            android:text="Mis Reservas"
+            android:textColor="@color/blanco"
+            app:iconTint="@color/blanco"
+            android:textSize="18sp"
+            android:backgroundTint="@color/orange"
+            app:icon="@android:drawable/ic_menu_agenda"
+            app:iconGravity="textTop"
+            app:iconSize="48dp"
+            app:iconPadding="8dp"
+            app:layout_constraintTop_toBottomOf="@id/btnReservarClase"
+            app:layout_constraintStart_toEndOf="@id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSuplementos"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:text="Suplementos"
+            android:textColor="@color/blanco"
+            app:iconTint="@color/blanco"
+            android:textSize="18sp"
+            android:backgroundTint="@color/orange"
+            app:icon="@android:drawable/ic_menu_share"
+            app:iconGravity="textTop"
+            app:iconSize="48dp"
+            app:iconPadding="8dp"
+            app:layout_constraintTop_toBottomOf="@id/btnMiPerfil"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/guideline"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPersonalTrainer"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="8dp"
+            android:text="Mi Perfil"
+            android:textColor="@color/blanco"
+            app:iconTint="@color/blanco"
+            android:textSize="18sp"
+            android:backgroundTint="@color/orange"
             app:icon="@android:drawable/ic_menu_manage"
             app:iconGravity="textTop"
-            app:iconPadding="8dp"
             app:iconSize="48dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnReservarClase"
-            app:layout_constraintEnd_toStartOf="@+id/guideline"
-            android:layout_marginEnd="8dp"
-            app:shapeAppearanceOverlay="@style/ShapeAppearance.App.Button.Rounded"/>
+            app:iconPadding="8dp"
+            app:layout_constraintTop_toBottomOf="@id/btnMisReservas"
+            app:layout_constraintStart_toEndOf="@id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.5"/>
-
+            app:layout_constraintGuide_percent="0.5" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
-

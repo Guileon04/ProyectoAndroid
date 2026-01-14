@@ -8,7 +8,7 @@
     android:paddingHorizontal="24dp"
     tools:context=".LoginActivity">
 
-    <!-- Logo -->
+
     <ImageView
         android:id="@+id/logoViva"
         android:layout_width="100dp"
@@ -22,7 +22,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Texto de introducción -->
     <TextView
         android:id="@+id/intro_text"
         android:layout_width="0dp"
@@ -36,7 +35,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logoViva" />
 
-    <!-- Campo de Correo electrónico -->
+
     <EditText
         android:id="@+id/edtEmailLogin"
         android:layout_width="0dp"
@@ -52,7 +51,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/intro_text" />
 
-    <!-- Campo de Contraseña con icono -->
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/password_layout"
         android:layout_width="0dp"
@@ -79,7 +78,7 @@
             android:textColorHint="#CCCCCC" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Botón de Iniciar Sesión (SIN backgroundTint) -->
+
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="0dp"
@@ -94,20 +93,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password_layout" />
 
-    <!-- Texto ¿Has olvidado tu contraseña? -->
-    <TextView
-        android:id="@+id/txtOlvidada"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="¿Has olvidado tu contraseña?"
-        android:textColor="@color/orange"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 
-    <!-- Ir a Registro -->
     <TextView
         android:id="@+id/txtIrARegistro"
         android:layout_width="wrap_content"

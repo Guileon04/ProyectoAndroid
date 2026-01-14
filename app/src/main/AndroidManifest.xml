@@ -1,39 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
 
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/viva"
         android:label="@string/Vivagym"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/viva"
         android:supportsRtl="true"
         android:theme="@style/Theme.Tarea1GLM"
         tools:targetApi="31">
-        <activity
-            android:name=".MiPerfilActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MisRutinasActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ReservarClaseActivity"
-            android:exported="false" />
+
+        <!-- ACTIVIDADES -->
+        <activity android:name=".MiPerfilActivity" android:exported="false" />
+        <activity android:name=".MisRutinasActivity" android:exported="false" />
+        <activity android:name=".ReservarClaseActivity" android:exported="false" />
+        <activity android:name=".MisReservasActivity" android:exported="false" />
+        <activity android:name=".PersonalTrainerActivity" android:exported="false" />
+        <activity android:name=".SuplementosActivity" android:exported="false" />
+        <activity android:name=".RegisterActivity" android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"
+            android:exported="false"
             android:label="@string/Vivagym"
-            android:theme="@style/Theme.Tarea1GLM">
+            android:theme="@style/Theme.Tarea1GLM" />
+
+        <!-- LOGIN = PANTALLA INICIAL -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".RegisterActivity" />
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713"/>
+
     </application>
 
 </manifest>

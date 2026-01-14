@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.google.services) // <-- AÑADIDO: Aplica el plugin de Google Services
+    alias(libs.plugins.google.services)
 }
 
 android {
@@ -33,30 +33,32 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
-    // Habilitamos ViewBinding, que es la forma moderna de usar XML sin findViewById
+
     buildFeatures {
         viewBinding = true
     }
 }
 
 dependencies {
-    // Dependencias básicas para un proyecto con XML Views
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.activity.ktx) // Se usa .activity.ktx en lugar de .activity
-
-    // 1. Se importa el Firebase BOM (Bill of Materials)
-    // Él gestionará las versiones de todas las demás librerías de Firebase.
+    implementation(libs.androidx.activity.ktx)
     implementation(platform(libs.firebase.bom))
-
-    // 2. Se añaden las dependencias de Firebase SIN especificar la versión.
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-auth:19.1.0")
-    implementation(libs.firebase.auth.ktx) // La librería que te daba error, ahora sin versión explícita
-
-    // Dependencias de testing
+    implementation("com.google.firebase:firebase-firestore-ktx")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("androidx.core:core-ktx:1.12.0")
+    implementation("androidx.core:core:1.12.0")
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.material:material:1.11.0")
+    implementation("com.google.android.gms:play-services-ads:22.3.0")
+    implementation(libs.firebase.auth.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
